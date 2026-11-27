@@ -17,11 +17,11 @@
 - **Duplicate content** Passed — Equal digest with independent ID
 - **Delete** Passed — Deleted failed record
 - **JS and embedded warnings** Passed — ['has_embedded_files', 'has_javascript']
-- **Path traversal** Passed — uploads/3f530eeb722e41c0a979ff3a620ba986/87bba1d2087e49c18fdcf87d136358e1.pdf
+- **Path traversal** Passed — uploads/ca92bdf5c5614761a28b6a5b45ff3923/30e3de14d9a041c8a09626c151a55a97.pdf
 - **Duplicate filename** Passed — Independent IDs and storage keys for matching filenames
-- **Query filter validation** Passed — valid=2, invalid_status=400
+- **Query filter validation** Passed — valid=4, invalid_status=400
 - **Upload rate limit** Passed — [415, 415, 415, 415, 415, 415, 415, 415, 415, 415, 429]
 - **Login rate limit** Passed — 5 failed attempts -> 401; 6th and subsequent valid attempt -> 429
 - **T05** Passed — Forced worker failure produced Failed state, CONTROLLED_FAILURE history and structured failure log.
-- **T07** Passed — Scanned API and processor output; 24 structured entries passed allowlist and sentinel checks.
+- **T07** Passed — Scanned API and processor output; 54 structured entries passed allowlist and sentinel checks.
 - **T08** Passed — Five integration claims linked to local evidence; Cloud Run marked Simulated.

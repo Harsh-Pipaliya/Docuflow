@@ -77,7 +77,7 @@
   },
   "Path traversal": {
     "status": "Passed",
-    "actual": "uploads/3f530eeb722e41c0a979ff3a620ba986/87bba1d2087e49c18fdcf87d136358e1.pdf"
+    "actual": "uploads/ca92bdf5c5614761a28b6a5b45ff3923/30e3de14d9a041c8a09626c151a55a97.pdf"
   },
   "Duplicate filename": {
     "status": "Passed",
@@ -85,7 +85,7 @@
   },
   "Query filter validation": {
     "status": "Passed",
-    "actual": "valid=2, invalid_status=400"
+    "actual": "valid=4, invalid_status=400"
   },
   "Upload rate limit": {
     "status": "Passed",
@@ -113,7 +113,7 @@
   },
   "T07": {
     "status": "Passed",
-    "actual": "Scanned API and processor output; 24 structured entries passed allowlist and sentinel checks."
+    "actual": "Scanned API and processor output; 54 structured entries passed allowlist and sentinel checks."
   },
   "T08": {
     "status": "Passed",

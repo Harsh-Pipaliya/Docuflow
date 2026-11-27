@@ -3,6 +3,5 @@
   "sample.pdf": "Passed",
   "attachment.pdf": "Passed",
   "marker.pdf": "Passed",
-  "empty file and upload limit": "Passed",
-  "failed login limit": "Passed"
+  "empty file and upload limit": "Passed"
 }
