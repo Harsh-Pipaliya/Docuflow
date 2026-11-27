@@ -1,0 +1,79 @@
+{
+  "Unauthorized": {
+    "status": "Passed",
+    "actual": "Unauthenticated document list requires login"
+  },
+  "CSRF": {
+    "status": "Passed",
+    "actual": "Missing token rejected"
+  },
+  "T01": {
+    "status": "Passed",
+    "actual": [
+      "Received",
+      "Validating",
+      "Validated",
+      "Processed"
+    ]
+  },
+  "T02": {
+    "status": "Passed",
+    "actual": "Wrong MIME and extension returned 415"
+  },
+  "T03": {
+    "status": "Passed",
+    "actual": "413 and unchanged metadata count"
+  },
+  "T04": {
+    "status": "Passed",
+    "actual": "Identical document and history after same-event delivery"
+  },
+  "corrupt": {
+    "status": "Passed",
+    "actual": "INVALID_STRUCTURE"
+  },
+  "encrypted": {
+    "status": "Passed",
+    "actual": "ENCRYPTED"
+  },
+  "zero": {
+    "status": "Passed",
+    "actual": "PAGE_COUNT"
+  },
+  "signature": {
+    "status": "Passed",
+    "actual": "INVALID_SIGNATURE"
+  },
+  "T06": {
+    "status": "Passed",
+    "actual": "Detail returned Processed"
+  },
+  "Download": {
+    "status": "Passed",
+    "actual": "Byte-identical authenticated download"
+  },
+  "Reprocess": {
+    "status": "Passed",
+    "actual": "New attempt preserves history"
+  },
+  "Duplicate content": {
+    "status": "Passed",
+    "actual": "Equal digest with independent ID"
+  },
+  "Delete": {
+    "status": "Passed",
+    "actual": "Deleted failed record"
+  },
+  "T05": {
+    "status": "Passed",
+    "actual": "Forced worker failure produced Failed state, CONTROLLED_FAILURE history and structured failure log."
+  },
+  "T07": {
+    "status": "Passed",
+    "actual": "Scanned API and processor output; 14 structured entries passed allowlist and sentinel checks."
+  },
+  "T08": {
+    "status": "Passed",
+    "actual": "Five integration claims linked to local evidence; Cloud Run marked Simulated."
+  }
+}

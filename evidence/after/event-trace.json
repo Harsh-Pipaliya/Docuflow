@@ -1,0 +1,38 @@
+{
+  "file_id": "9c9de2770b434f3da83efc316ac75018",
+  "generation": "1795759259866",
+  "history": [
+    {
+      "attempt_id": "2b5340f7bb9d4c49a889a548bedf7198",
+      "error_code": null,
+      "outcome": "Received",
+      "stage": "Received",
+      "timestamp": "2026-11-27T06:00:59.848618+00:00",
+      "trigger": "upload-event"
+    },
+    {
+      "attempt_id": "2b5340f7bb9d4c49a889a548bedf7198",
+      "error_code": null,
+      "outcome": "Validating",
+      "stage": "Validating",
+      "timestamp": "2026-11-27T06:00:59.889351+00:00",
+      "trigger": "upload-event"
+    },
+    {
+      "attempt_id": "2b5340f7bb9d4c49a889a548bedf7198",
+      "error_code": null,
+      "outcome": "Validated",
+      "stage": "Validated",
+      "timestamp": "2026-11-27T06:00:59.913636+00:00",
+      "trigger": "upload-event"
+    },
+    {
+      "attempt_id": "2b5340f7bb9d4c49a889a548bedf7198",
+      "error_code": null,
+      "outcome": "Processed",
+      "stage": "Processed",
+      "timestamp": "2026-11-27T06:00:59.924337+00:00",
+      "trigger": "upload-event"
+    }
+  ]
+}
