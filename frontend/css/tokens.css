@@ -1,1 +1,16 @@
-:root{--bg:#ffb6c1;--panel:#ffe4e8;--ink:#000;--paper:#fff;--line:2px solid var(--ink);--radius:16px;--pill:9999px;--space:16px;--font:system-ui,"Segoe UI",sans-serif}
+:root {
+  --ink: #261b25;
+  --muted: #675b65;
+  --accent: #751b49;
+  --accent-deep: #541235;
+  --rose: #f6d9e4;
+  --blush: #fff4f7;
+  --paper: #fff;
+  --canvas: #faf8f8;
+  --border: #dfd6da;
+  --radius: 18px;
+  --sidebar: 216px;
+  --pad: clamp(20px, 4vw, 58px);
+  --font: "Segoe UI", system-ui, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+}

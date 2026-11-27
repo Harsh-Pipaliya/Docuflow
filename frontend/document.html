@@ -1,2 +1,17 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Document details · DocuFlow</title><link rel="stylesheet" href="/css/styles.css"><script type="module" src="/js/app.js"></script></head><body data-page="document"><header><strong>DocuFlow</strong><nav><a href="/index.html">Dashboard</a><a href="/upload.html">Upload</a><a href="/documents.html">Documents</a><a href="/integrations.html">Integrations</a><button id="logout">Sign out</button></nav></header><main><h1>Document details</h1><p>Processor hosting: <strong>SIMULATED</strong></p><p id="message" role="status"></p><h2 id="name"></h2><dl id="details"></dl><div class="filters"><button id="download">Download</button><button id="reprocess" hidden>Reprocess</button><button id="delete">Delete</button></div><h2>Processing history</h2><ol id="history"></ol></main></body></html>
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document details · DocuFlow</title>
+  <link rel="stylesheet" href="/css/styles.css"><script type="module" src="/js/app.js"></script>
+</head>
+<body data-page="document">
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sidebar"><div class="brand"><span class="brand-mark" aria-hidden="true"></span>DocuFlow</div><nav aria-label="Main navigation"><a href="/index.html"><span class="nav-icon" aria-hidden="true">▦</span>Dashboard</a>
+<a href="/upload.html"><span class="nav-icon" aria-hidden="true">↑</span>Upload</a>
+<a href="/documents.html" aria-current="page"><span class="nav-icon" aria-hidden="true">▤</span>Documents</a>
+<a href="/integrations.html"><span class="nav-icon" aria-hidden="true">⌘</span>Integrations</a></nav><div class="account"><span class="avatar" aria-hidden="true">D</span><div>Demo account<button id="logout">Sign out</button></div></div></aside>
+<div class="workspace"><header><span>Workspace <span class="slash">/</span> <b>Document details</b></span><span class="hosting"><i></i>Processor hosting <b>Simulated</b></span></header>
+<main id="main"><div class="page-head"><h1>Document details</h1></div><p id="message" role="status"></p>
+<section class="panel doc-summary"><div><h2 id="name">Loading document…</h2><div id="current"></div></div><div class="actions"><button id="download">Download</button><button id="reprocess" hidden>Reprocess</button><button id="delete">Delete</button></div></section><div class="detail-grid"><section class="panel"><div class="panel-head"><h2>Processing history</h2></div><ol id="history"></ol></section><section class="panel"><div class="panel-head"><h2>File information</h2></div><dl id="details"></dl></section></div></main></div>
+</body></html>
