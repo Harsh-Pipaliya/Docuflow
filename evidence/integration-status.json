@@ -1,0 +1,47 @@
+[
+  {
+    "service": "Cloud Storage",
+    "status": "Native",
+    "limitations": "SDK CRUD verified. IAM enforced for REST reads. Emulator remains internal to Compose.",
+    "evidence_links": [
+      "evidence/setup/sdk-probe.txt"
+    ],
+    "last_verified_at": "2026-11-27"
+  },
+  {
+    "service": "Eventarc",
+    "status": "Native",
+    "limitations": "Object creation delivered a finalized event to the processor HTTP endpoint.",
+    "evidence_links": [
+      "evidence/after/event-trace.json"
+    ],
+    "last_verified_at": "2026-11-27"
+  },
+  {
+    "service": "Cloud Run",
+    "status": "Simulated",
+    "limitations": "Floci deployment returned CONDITION_FAILED with a missing Docker socket. Compose runs the processor image.",
+    "evidence_links": [
+      "evidence/setup/cloud-run.json"
+    ],
+    "last_verified_at": "2026-11-27"
+  },
+  {
+    "service": "Firestore",
+    "status": "Native",
+    "limitations": "Document transactions and persisted state/history verified with the Python SDK.",
+    "evidence_links": [
+      "evidence/setup/sdk-probe.txt"
+    ],
+    "last_verified_at": "2026-11-27"
+  },
+  {
+    "service": "Cloud Logging",
+    "status": "Native",
+    "limitations": "Entries written and retrieved through the emulator REST API.",
+    "evidence_links": [
+      "evidence/setup/logging.txt"
+    ],
+    "last_verified_at": "2026-11-27"
+  }
+]

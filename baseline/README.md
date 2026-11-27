@@ -1,0 +1,1 @@
+Frozen synthetic assessment. Run python baseline/run.py with pypdf installed. This local in-memory harness isolates the original processing logic. The five observed outcomes are stored under evidence/baseline. The oversized input passes, duplicate delivery repeats an effect and worker failure leaves a stale state.

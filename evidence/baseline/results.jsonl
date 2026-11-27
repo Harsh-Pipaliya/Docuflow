@@ -1,0 +1,5 @@
+{"case": "valid", "status": "Processed", "effects": 1, "bytes": 429}
+{"case": "unsupported", "status": "Rejected", "effects": 0}
+{"case": "oversized", "status": "Processed", "effects": 1, "bytes": 10485761}
+{"case": "replay", "status": "Processed", "effects": 2, "bytes": 429}
+{"case": "failure", "status": "Validating", "effects": 0, "bytes": 429}

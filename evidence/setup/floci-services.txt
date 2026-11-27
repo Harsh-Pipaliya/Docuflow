@@ -1,0 +1,27 @@
+Floci GCP Services  (25 enabled)
+
+  +  datastore
+  +  sts
+  +  logging
+  +  cloudbilling
+  +  monitoring
+  +  bigquery
+  +  pubsub
+  +  gke
+  +  scheduler
+  +  eventarc
+  +  iam
+  +  resourcemanager
+  +  firestore
+  +  firebaseauth
+  +  secretmanager
+  +  iamcredentials
+  +  cloudfunctions
+  +  kms
+  +  cloudtasks
+  +  serviceusage
+  +  cloudsql
+  +  kafka
+  +  gcs
+  +  cloudrun
+  +  compute
