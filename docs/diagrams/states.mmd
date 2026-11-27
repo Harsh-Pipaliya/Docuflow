@@ -1,0 +1,12 @@
+flowchart TD
+    n0["Received"]
+    n1["Validating"]
+    n2["Validated"]
+    n3["Processed"]
+    n4["Failed"]
+    n0 --> n1
+    n1 --> n2
+    n2 --> n3
+    n0 --> n4
+    n1 --> n4
+    n2 --> n4
