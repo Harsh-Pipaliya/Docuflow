@@ -8,7 +8,9 @@ x-app: &app
 services:
   cloud:
     image: floci/floci-gcp@sha256:a59403d43d524b1a08282d67d541a6d37bf7868cbd9d1311caa0d2983adf6f46
+    volumes: ["cloud-data:/app/data"]
     environment:
+      FLOCI_GCP_STORAGE_MODE: hybrid
       FLOCI_GCP_SERVICES_IAM_AUTHORIZATION_MODE: enforce
       FLOCI_GCP_SERVICES_IAM_BOOTSTRAP_ADMIN_MEMBER: serviceAccount:api@docuflow.iam.gserviceaccount.com
   bootstrap:
@@ -31,3 +33,5 @@ services:
         condition: service_completed_successfully
     ports: ["127.0.0.1:8080:8080"]
     command: ["gunicorn","--bind","0.0.0.0:8080","--threads","4","backend.app:create_app()"]
+volumes:
+  cloud-data: {}

@@ -1,0 +1,2 @@
+{"timestamp": "2026-11-27T10:55:14.874000+00:00", "severity": "INFO", "stage": "process", "file_id": "101e8d9ffd844ba1858b3fc891ccbb13", "outcome": "Processed", "component": "processor", "integration": "simulated", "duration_ms": 1683, "attempt_id": "6c6c890cffd94178be9b47f3d07d2611"}
+Two injected timeouts preceded success. A late transition could not overwrite the terminal state.

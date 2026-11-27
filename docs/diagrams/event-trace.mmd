@@ -1,0 +1,16 @@
+sequenceDiagram
+participant UI as Browser
+participant API as Flask API
+participant DB as Firestore
+participant GCS as Cloud Storage
+participant EVT as Eventarc
+participant WK as Processor
+UI->>API: Authenticated upload
+API->>DB: Create Received record and history
+API->>GCS: Write generated object
+GCS->>EVT: Finalized generation
+EVT->>WK: CloudEvent HTTP POST
+WK->>DB: Claim attempt and enter Validating
+WK->>GCS: Read generation
+WK->>DB: Commit Validated then Processed
+UI->>API: Poll document and history

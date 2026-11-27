@@ -1,22 +1,22 @@
-import {api,upload} from "./api.js";import {el,time,message} from "./ui.js";
-const $=s=>document.querySelector(s),page=document.body.dataset.page,id=new URLSearchParams(location.search).get("id"),path="/api/documents/"+encodeURIComponent(id);
-async function refresh(){
- if(page==="documents"||page==="index"){
- let rows=await api("/api/documents");
- if(page==="index"){const stats=await api("/api/stats");$("#counts").replaceChildren(...Object.entries(stats).map(([k,v])=>{const n=el("div",k);n.append(el("strong",v));return n}));rows=rows.slice(0,5)}
- else{rows=rows.filter(d=>d.original_filename.toLowerCase().includes($("#query").value.toLowerCase())&&($("#status").value==="All"||$("#status").value===d.status));if($("#sort").value==="Name")rows.sort((a,b)=>a.original_filename.localeCompare(b.original_filename));if($("#sort").value==="Size")rows.sort((a,b)=>b.size_bytes-a.size_bytes)}
- $("#list").replaceChildren(...rows.map(d=>{const n=el("div");n.className="row";const a=el("a",d.original_filename);a.href="/document.html?id="+d.file_id;n.append(a,el("span",d.status),el("span",time(d.uploaded_at)));return n}));if(!rows.length)$("#list").append(el("p","No documents to show."));
- }else if(page==="document"){const d=await api(path),h=await api(path+"/history");$("#name").textContent=d.original_filename;$("#details").replaceChildren(...Object.entries(d).flatMap(([k,v])=>[el("dt",k.replaceAll("_"," ")),el("dd",k.endsWith("_at")?time(v):Array.isArray(v)?v.join(", ")||"None":v??"â€”")]));$("#reprocess").hidden=d.status!=="Failed";$("#history").replaceChildren(...h.map(s=>el("li",time(s.timestamp)+" Â· "+s.stage+" Â· "+s.outcome)))}
+import { api, upload } from "./api.js"; import { el, time, message } from "./ui.js";
+const $ = s => document.querySelector(s), page = document.body.dataset.page, id = new URLSearchParams(location.search).get("id"), path = "/api/documents/" + encodeURIComponent(id);
+async function refresh() {
+    if (page === "documents" || page === "index") {
+        let rows = await api("/api/documents");
+        if (page === "index") { const stats = await api("/api/stats"); $("#counts").replaceChildren(...Object.entries(stats).map(([k, v]) => { const n = el("div", k); n.append(el("strong", v)); return n })); rows = rows.slice(0, 5) }
+        else { rows = rows.filter(d => d.original_filename.toLowerCase().includes($("#query").value.toLowerCase()) && ($("#status").value === "All" || $("#status").value === d.status)); if ($("#sort").value === "Name") rows.sort((a, b) => a.original_filename.localeCompare(b.original_filename)); if ($("#sort").value === "Size") rows.sort((a, b) => b.size_bytes - a.size_bytes) }
+        $("#list").replaceChildren(...rows.map(d => { const n = el("div"); n.className = "row"; const a = el("a", d.original_filename); a.href = "/document.html?id=" + d.file_id; n.append(a, el("span", d.status), el("span", time(d.uploaded_at))); return n })); if (!rows.length) $("#list").append(el("p", "No documents to show."));
+    } else if (page === "document") { const d = await api(path), h = await api(path + "/history"); $("#name").textContent = d.original_filename; $("#details").replaceChildren(...Object.entries(d).flatMap(([k, v]) => [el("dt", k.replaceAll("_", " ")), el("dd", k.endsWith("_at") ? time(v) : Array.isArray(v) ? v.join(", ") || "None" : v ?? "—")])); $("#reprocess").hidden = d.status !== "Failed"; $("#history").replaceChildren(...h.map(s => el("li", time(s.timestamp) + " · " + s.stage + " · " + s.outcome))) }
 }
-async function start(){
- const session=await api("/api/auth/me");
- if(page==="login"){$("form").onsubmit=async e=>{e.preventDefault();try{await api("/api/auth/login","POST",Object.fromEntries(new FormData(e.target)));location.href="/"}catch(err){message(err.message)}};return}
- if(!session.authenticated){location.replace("/login.html");return}
- $("#logout").onclick=async()=>{await api("/api/auth/logout","POST");location.replace("/login.html")};
- if(page==="upload"){const run=async files=>{for(const f of files){const n=el("li",f.name+" "),p=el("progress");p.max=1;p.value=0;n.append(p);$("#results").append(n);try{const r=await upload(f,p);const a=el("a","View document");a.href="/document.html?id="+r.file_id;n.append(a);message("Upload received")}catch(err){n.append(el("span",err.message));message("Upload failed")}}};$("#drop").onsubmit=e=>{e.preventDefault();run($("input").files)};$("#drop").ondragover=e=>e.preventDefault();$("#drop").ondrop=e=>{e.preventDefault();run(e.dataTransfer.files)};return}
- if(page==="integrations"){const data=await api("/api/integrations");$("#services").replaceChildren(...data.map(d=>{const n=el("article");n.append(el("h2",d.service),el("strong",d.status),el("p",d.limitations));return n}));return}
- if(page==="document"){$("#download").onclick=()=>location.assign(path+"/download");$("#delete").onclick=async()=>{if(confirm("Delete this document and its history?")){await api(path,"DELETE");location.href="/documents.html"}};$("#reprocess").onclick=async()=>{await api(path+"/reprocess","POST");await refresh()}}
- if(page==="documents")document.querySelectorAll("input,select").forEach(n=>n.oninput=refresh);
- await refresh();const timer=setInterval(()=>{if(!document.hidden)refresh().catch(e=>message(e.message))},2500);window.addEventListener("pagehide",()=>clearInterval(timer));
+async function start() {
+    const session = await api("/api/auth/me");
+    if (page === "login") { $("form").onsubmit = async e => { e.preventDefault(); try { await api("/api/auth/login", "POST", Object.fromEntries(new FormData(e.target))); location.href = "/" } catch (err) { message(err.message) } }; return }
+    if (!session.authenticated) { location.replace("/login.html"); return }
+    $("#logout").onclick = async () => { await api("/api/auth/logout", "POST"); location.replace("/login.html") };
+    if (page === "upload") { const drop = $("#drop"), run = async files => { for (const f of files) { const n = el("li", f.name + " "), p = el("progress"); p.max = 1; p.value = 0; n.append(p); $("#results").append(n); try { const r = await upload(f, p); const a = el("a", "View document"); a.href = "/document.html?id=" + r.file_id; n.append(a); message("Upload received") } catch (err) { n.append(el("span", err.message)); message("Upload failed") } } }; drop.onsubmit = e => { e.preventDefault(); run($("input").files) }; drop.ondragover = e => { e.preventDefault(); drop.classList.add("dragover") }; drop.ondragleave = () => drop.classList.remove("dragover"); drop.ondrop = e => { e.preventDefault(); drop.classList.remove("dragover"); run(e.dataTransfer.files) }; return }
+    if (page === "integrations") { const data = await api("/api/integrations"); $("#services").replaceChildren(...data.map(d => { const n = el("article"); n.append(el("h2", d.service), el("strong", d.status), el("p", d.limitations)); if (d.evidence_links?.length) d.evidence_links.forEach(path => { const a=el("a","Download verification evidence"); a.href="/api/"+path; n.append(a) }); if (d.last_verified_at) n.append(el("p", "Last verified: " + d.last_verified_at)); return n })); return }
+    if (page === "document") { $("#download").onclick = () => location.assign(path + "/download"); $("#delete").onclick = async () => { if (confirm("Delete this document and its history?")) { await api(path, "DELETE"); location.href = "/documents.html" } }; $("#reprocess").onclick = async () => { await api(path + "/reprocess", "POST"); await refresh() } }
+    if (page === "documents") document.querySelectorAll("input,select").forEach(n => n.oninput = refresh);
+    await refresh(); const timer = setInterval(() => { if (!document.hidden) refresh().catch(e => message(e.message)) }, 2500); window.addEventListener("pagehide", () => clearInterval(timer));
 }
-window.addEventListener("unhandledrejection",e=>message(e.reason.message));start().catch(e=>message(e.message));
+window.addEventListener("unhandledrejection", e => message(e.reason.message)); start().catch(e => message(e.message));

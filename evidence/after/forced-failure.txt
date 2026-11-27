@@ -1,2 +1,2 @@
-{"timestamp": "2026-11-27T06:01:04.251420+00:00", "severity": "INFO", "stage": "process", "file_id": "1f15875854134fdd9dc0ae23182f4c42", "outcome": "Failed", "component": "processor", "integration": "native", "error_code": "CONTROLLED_FAILURE", "attempt_id": "992b4aaa22f14925a1f1f811aa21a974", "duration_ms": 5}
+{"timestamp": "2026-11-27T10:55:03.879870+00:00", "severity": "INFO", "stage": "process", "file_id": "6c8fe46f3b4b402b8c372b016142c104", "outcome": "Failed", "component": "processor", "integration": "simulated", "error_code": "CONTROLLED_FAILURE", "attempt_id": "f063f471f6634a9394de6853d1a0c7ab", "duration_ms": 6}
 Controlled worker failure reached Failed with matching history code.

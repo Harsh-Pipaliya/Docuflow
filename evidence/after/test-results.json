@@ -20,6 +20,10 @@
     "status": "Passed",
     "actual": "Wrong MIME and extension returned 415"
   },
+  "Empty file": {
+    "status": "Passed",
+    "actual": "0-byte PDF returned 400"
+  },
   "T03": {
     "status": "Passed",
     "actual": "413 and unchanged metadata count"
@@ -50,7 +54,7 @@
   },
   "Download": {
     "status": "Passed",
-    "actual": "Byte-identical authenticated download"
+    "actual": "Byte-identical authenticated download with nosniff header"
   },
   "Reprocess": {
     "status": "Passed",
@@ -64,13 +68,52 @@
     "status": "Passed",
     "actual": "Deleted failed record"
   },
+  "JS and embedded warnings": {
+    "status": "Passed",
+    "actual": [
+      "has_embedded_files",
+      "has_javascript"
+    ]
+  },
+  "Path traversal": {
+    "status": "Passed",
+    "actual": "uploads/3f530eeb722e41c0a979ff3a620ba986/87bba1d2087e49c18fdcf87d136358e1.pdf"
+  },
+  "Duplicate filename": {
+    "status": "Passed",
+    "actual": "Independent IDs and storage keys for matching filenames"
+  },
+  "Query filter validation": {
+    "status": "Passed",
+    "actual": "valid=2, invalid_status=400"
+  },
+  "Upload rate limit": {
+    "status": "Passed",
+    "actual": [
+      415,
+      415,
+      415,
+      415,
+      415,
+      415,
+      415,
+      415,
+      415,
+      415,
+      429
+    ]
+  },
+  "Login rate limit": {
+    "status": "Passed",
+    "actual": "5 failed attempts -> 401; 6th and subsequent valid attempt -> 429"
+  },
   "T05": {
     "status": "Passed",
     "actual": "Forced worker failure produced Failed state, CONTROLLED_FAILURE history and structured failure log."
   },
   "T07": {
     "status": "Passed",
-    "actual": "Scanned API and processor output; 14 structured entries passed allowlist and sentinel checks."
+    "actual": "Scanned API and processor output; 24 structured entries passed allowlist and sentinel checks."
   },
   "T08": {
     "status": "Passed",
