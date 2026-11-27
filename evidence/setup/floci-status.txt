@@ -1,0 +1,7 @@
+Floci GCP Status
+
+  Container:  floci-gcp  not found
+  Endpoint:   http://localhost:4588
+  Reachable:  yes
+  Version:    0.13.0
+  Edition:    community

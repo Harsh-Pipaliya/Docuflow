@@ -1,0 +1,2 @@
+Cloud Storage SDK create/write/read/list/delete passed; anonymous REST download returned 403.
+Firestore SDK create/read/transaction/update/delete passed.
