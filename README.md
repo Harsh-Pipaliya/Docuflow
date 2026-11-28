@@ -25,6 +25,7 @@ The browser uses a Flask API for login, upload, status, download and deletion. A
 ![Workflow](docs/diagrams/architecture.svg)
 
 - [Test matrix](evidence/after/matrix.md), [before and after](docs/before-after.md) and [integration evidence](evidence/integration-status.json)
+- [Presentation sample kit](samples/Presentation-kit.zip) and [file and outcome tables](docs/Presentation-sample-guide.xlsx). Extract the kit, upload the original agenda, wait for Processed, then try the renamed copy, the revised agenda and the truncated PDF.
 - [Eight-minute presentation walkthrough for five speakers](docs/Presentation-walkthrough.docx) with click paths, speaking notes, rehearsal screenshots and reviewer questions
 - [Assessment report](docs/Assessment.docx), [team walkthrough and demo](docs/Team-guide.docx) and [19-topic technical reference](docs/Technical-reference.docx)
 - [File policy](docs/file-policy.md), [metadata schema](docs/metadata-schema.md), [state transitions](docs/state-machine.md), [HTTP API](docs/api.md) and [configuration](docs/configuration.md)
