@@ -1,0 +1,14 @@
+Speaker 1 | Slide 1 | DocuFlow
+Imagine uploading a PDF and wondering whether anyone can actually open it. DocuFlow answers that question. Each upload gets its own file ID, and the dashboard follows it from Received to Processed. If something goes wrong, we can open its history and see why.
+
+Speaker 2 | Slide 2 | Receiving the PDF
+Let’s upload our workshop agenda. After I sign in, the Flask API checks the file extension, its declared type, and its size. It rejects an empty file or one over ten mebibytes. If the agenda passes, the API assigns a file ID and a private storage key.
+
+Speaker 3 | Slide 3 | From storage to the worker
+Once the file is stored, Eventarc sends the worker a message identifying the exact version to read. That lets processing continue after the upload request finishes. We used Floci to run the cloud services locally. For this demo, Docker Compose hosts the worker in place of Cloud Run.
+
+Speaker 4 | Slide 4 | Inside the PDF
+The worker opens the PDF in an isolated process and checks its structure and pages. An encrypted or damaged file gets a failure reason. For a valid file, it saves the page count and a fingerprint of the bytes. Firestore keeps the history, and Cloud Logging records the outcome.
+
+Speaker 5 | Slide 5 | What the tests proved
+We tested fourteen sample files. Seven processed, four were accepted but failed validation, and three were rejected at upload. Renaming a copy still produced a duplicate flag because its bytes matched. Replaying the same event left the history unchanged. All twenty-five workflow checks passed.
